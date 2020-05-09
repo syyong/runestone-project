@@ -2,3 +2,6 @@
 .vscode/
 # python virtualenv
 venv/
+# python cache
+__pycache__
+
