@@ -12,7 +12,7 @@ def compare(sentence):
     for i in range(28):
         if goal[i] == sentence[i]:
             score += 1
-    return round(score/28*100, 2)
+    return score/28
 
 
 def get_best_string(score_string):
@@ -24,7 +24,7 @@ def run():
     count = 0
     score_string = {}
     sentence = generate()
-    while compare(sentence) < 100:
+    while compare(sentence) < 1:
         sentence = generate()
         score = compare(sentence)
         score_string[score] = sentence
