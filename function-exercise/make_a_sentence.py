@@ -15,21 +15,27 @@ def compare(sentence):
     return round(score/28*100, 2)
 
 
-def get_best_sentence():
-    pass
+def get_best_string(score_string):
+    best_score = max(score_string.keys())
+    return best_score, score_string[best_score]
 
 
 def run():
     count = 0
+    score_string = {}
     while True:
         sentence = generate()
         score = compare(sentence)
+        score_string[score] = sentence
         if score == 100:
             print(sentence)
             break
         elif count == 1000:
-            get_best_sentence()
-            print(score)
+            print('-' * 28)
+            print(get_best_string(score_string))
+            print('-' * 28)
+            score_string = {}
+            count = 0
         count += 1
     
 
