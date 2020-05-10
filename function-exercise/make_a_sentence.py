@@ -15,23 +15,19 @@ def compare(sentence):
     return score/28
 
 
-def get_best_string(score_string):
-    best_score = max(score_string.keys())
-    return best_score, score_string[best_score]
-
-
 def run():
     count = 0
     score_string = {}
     sentence = generate()
-    while compare(sentence) < 1:
+    best = 0
+    score = compare(sentence)
+
+    while score < 1:
+        if score > best:
+            if count % 1_000_000 == 0:
+                print(score, sentence)
         sentence = generate()
         score = compare(sentence)
-        score_string[score] = sentence
-        if count == 1000:
-            print(get_best_string(score_string))
-            score_string = {}
-            count = 0
         count += 1
     
 
