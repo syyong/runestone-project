@@ -23,14 +23,12 @@ def get_best_string(score_string):
 def run():
     count = 0
     score_string = {}
-    while True:
+    sentence = generate()
+    while compare(sentence) < 100:
         sentence = generate()
         score = compare(sentence)
         score_string[score] = sentence
-        if score == 100:
-            print(sentence)
-            break
-        elif count == 1000:
+        if count == 1000:
             print(get_best_string(score_string))
             score_string = {}
             count = 0
