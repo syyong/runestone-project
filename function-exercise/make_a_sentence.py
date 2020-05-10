@@ -31,9 +31,7 @@ def run():
             print(sentence)
             break
         elif count == 1000:
-            print('-' * 28)
             print(get_best_string(score_string))
-            print('-' * 28)
             score_string = {}
             count = 0
         count += 1
